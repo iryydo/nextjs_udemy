@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Header from './components/Header'
 import SearchSideBar from './components/SearchSideBar'
@@ -18,8 +17,8 @@ const fetchRestaurantsByCity = async function (city: string | undefined) {
         slug: true
     }
 
-    if (!city) return prisma.restaurant.findMany({ select });
-    console.log("city", city)
+    if (!city) return prisma.restaurant.findMany({ select })
+
     return prisma.restaurant.findMany({
         where: {
             location: {
@@ -34,7 +33,7 @@ const fetchRestaurantsByCity = async function (city: string | undefined) {
 
 export default async function Search({ searchParams }: { searchParams: { city: string } }) {
     const restaurants = await fetchRestaurantsByCity(searchParams.city)
-    console.log(searchParams.city, restaurants)
+    console.log("searchParams.city: ", searchParams.city, restaurants)
     return (
         <main>
             <Navbar />

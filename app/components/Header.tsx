@@ -4,8 +4,6 @@ import { useState } from "react";
 import SearchBar from "./SearchBar";
 
 export default function Header() {
-    const router = useRouter();
-    const [location, setLocation] = useState('');
 
     return (
         <div className="h-64 bg-gradient-to-r from-[#0f1f47] to-[#5f6984] p-2" data-theme="light">
