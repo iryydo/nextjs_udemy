@@ -19,12 +19,10 @@ const fetchRestaurantsByCity = async function (searchParams: SearchParams) {
 
   const where: any = {};
 
-  // if (!searchParams.city) return prisma.restaurant.findMany({ select })
-
   if(searchParams.city) {
     const location = {
       name: {
-        equals: searchParams.city
+        equals: searchParams.city.toLowerCase()
       }
     }
     where.location = location;
@@ -33,7 +31,7 @@ const fetchRestaurantsByCity = async function (searchParams: SearchParams) {
   if(searchParams.cuisine) {
     const cuisine = {
       name: {
-        equals: searchParams.cuisine
+        equals: searchParams.cuisine.toLowerCase()
       }
     }
     where.cuisine = cuisine;
